@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Address</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+	<script defer src="Address.js"></script>
+	<link href="./Address.css" rel="stylesheet"/>
+</head>
+<body>
+    <form class="bg-gray-100 p-4 flex flex-col justify-center items-center gap-2" action="">
+        <h1 class="text-[#009743] text-xl font-semibold">Saved addresses</h1>
+        <div class="w-full flex gap-4">
+            <div class="bg-white p-4 rounded-3xl shadow-2xl h-48 w-48">
+                <h1 class="text-[#009743]">Add Address Manually</h1>
+                <div class=" flex flex-col items-center justify-center h-full w-full -mt-4">
+                    <img class="h-16 " src="../logo-images/plus-icon-yellow.svg"/>
+                </div>
+            </div>
+            <!--<div class="bg-white p-4 h-48 w-48 rounded-3xl shadow-2xl">
+                <h1 class="text-[#009743]">Home Address</h1>
+                <p>
+                    Neelamkavil House,<br>
+                    Near R C Church,<br>
+                    Pavaratty P. O<br>
+                    680507
+                </p>
+            </div>-->
+        </div>
+        <div>
+            <h1 class="text-[#009743]">Pick your current location as address</h1>
+            <button class="text-center text-white bg-[#009743] px-2 py-4 rounded-xl" onclick="getLocation()">Get my current location</button>
+            <p id="demo"></p>
+        </div>
+    </form>
+    <script>
+        var x = document.getElementById("demo");
+        
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+
+        var lat = position.coords.latitude;
+        var lng = position.coords.latitude;
+        console.log(lat);
+
+        
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude + 
+          "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+        
+</body>
+</html>
